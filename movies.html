@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Form Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+$(document).ready(function() {
+  $("#submit-btn").click(function(event) {
+  event.preventDefault();
+  let title = $("#title-input").val();
+  let rating = $("#rating-input").val();
+  $("#ratings-list").append("<li>" + title + " - " + rating + " <button class='remove-btn'>Remove</button></li>");
+});
+
+  $(document).on("click", ".remove-btn", function() {
+  $(this).parent().remove();
+  });
+  });
+  </script>
+</head>
+<body>
+  <h1>jQuery Form Example</h1>
+  <form>
+    <label for="title-input">Title:</label>
+    <input type="text" id="title-input">
+
+    <label for="rating-input">Rating:</label>
+    <input type="number" id="rating-input">
+
+    <button id="submit-btn" type="submit">Submit</button>
+  </form>
+
+  <ul id="ratings-list">
+  </ul>
+</body>
+</html>
